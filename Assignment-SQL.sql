@@ -10,12 +10,12 @@ CREATE TABLE employees (
 -- Ans2: Explanation of constraints
 -- Constraints are rules enforced on data in a database table. They ensure the accuracy and reliability of the data.
 -- Examples of common constraints:
--- - NOT NULL: Ensures a column cannot have a NULL value.
--- - UNIQUE: Ensures all values in a column are unique.
--- - PRIMARY KEY: Uniquely identifies each record in a table (implies NOT NULL + UNIQUE).
--- - FOREIGN KEY: Ensures the referential integrity of the data.
--- - CHECK: Ensures the value in a column meets a specific condition.
--- - DEFAULT: Assigns a default value if no value is specified.
+-- > NOT NULL: Ensures a column cannot have a NULL value.
+-- > UNIQUE: Ensures all values in a column are unique.
+-- > PRIMARY KEY: Uniquely identifies each record in a table (implies NOT NULL + UNIQUE).
+-- > FOREIGN KEY: Ensures the referential integrity of the data.
+-- > CHECK: Ensures the value in a column meets a specific condition.
+-- > DEFAULT: Assigns a default value if no value is specified.
 
 -- Ans3: NOT NULL and Primary Key
 -- The NOT NULL constraint is used to ensure that a column cannot have a NULL value.
@@ -43,24 +43,6 @@ ADD CONSTRAINT pk_product_id PRIMARY KEY (product_id);
 
 ALTER TABLE products
 ALTER COLUMN price SET DEFAULT 50.00;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 --
 --SQL COMMANDS-
@@ -281,7 +263,9 @@ JOIN inventory i ON r.inventory_id = i.inventory_id
 GROUP BY customer_id
 HAVING COUNT(DISTINCT i.store_id) = 2;
 
+--
 -- WINDOWS FUNCTIONS
+--
 --Ans1: 
 SELECT customer_id, first_name, last_name, 
        SUM(amount) AS total_spent,
@@ -392,8 +376,9 @@ FROM (
 ) AS ranked_months
 WHERE revenue_rank <= 5;
 
+--
 --NORMALIZATION & CTE
-
+--
 -- Ans1:
 --CREATE TABLE customer_orders (
 --  customer_id INT,
@@ -417,7 +402,7 @@ CREATE TABLE order_item (
 address → city_id → country_id
 
 -- Ans4:
--- Unnormalized Table
+-- Unnormalized Table:
 -- CREATE TABLE rental_info (
 --  customer_id INT,
 --  customer_name TEXT,
