@@ -44,6 +44,29 @@ ADD CONSTRAINT pk_product_id PRIMARY KEY (product_id);
 ALTER TABLE products
 ALTER COLUMN price SET DEFAULT 50.00;
 
+-- Ans7: 
+SELECT s.student_name, c.class_name
+FROM Students s
+INNER JOIN Classes c ON s.class_id = c.class_id;
+
+-- Ans8:
+SELECT o.order_id, c.customer_name, p.product_name
+FROM Products p
+LEFT JOIN Orders o ON p.order_id = o.order_id
+LEFT JOIN Customers c ON o.customer_id = c.customer_id;
+
+-- Ans9:
+SELECT p.product_name, SUM(s.amount) AS total_sales
+FROM Sales s
+INNER JOIN Products p ON s.product_id = p.product_id
+GROUP BY p.product_name;
+
+--Ans10:
+SELECT o.order_id, c.customer_name, od.quantity
+FROM Orders o
+INNER JOIN Customers c ON o.customer_id = c.customer_id
+INNER JOIN Order_Details od ON o.order_id = od.order_id;
+
 --
 --SQL COMMANDS-
 --
